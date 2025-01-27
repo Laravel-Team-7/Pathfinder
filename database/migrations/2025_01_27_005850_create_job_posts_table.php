@@ -17,11 +17,13 @@ return new class extends Migration
             $table->string('title');
             $table->text('description');
             $table->string('location');
-            $table->string('type');
             $table->string('category');
+            $table->date('expiration_date');
             $table->string('status')->default('active');
             $table->string('salary')->nullable();
-            $table->string('apply_link')->nullable();                        
+            $table->string('apply_link')->nullable();   
+            $table->integer('clicks')->default(0);
+            $table->integer('views')->default(0);                     
             $table->timestamps();
         });
     }
