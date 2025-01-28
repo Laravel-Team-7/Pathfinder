@@ -20,10 +20,12 @@ return new class extends Migration
             $table->string('category');
             $table->date('expiration_date');
             $table->string('status')->default('active');
-            $table->string('salary')->nullable();
-            $table->string('apply_link')->nullable();   
+            $table->decimal('salary_min', 10, 2)->nullable();
+            $table->decimal('salary_max', 10, 2)->nullable();
+            $table->string('apply_link')->nullable();
             $table->integer('clicks')->default(0);
-            $table->integer('views')->default(0);                     
+            $table->integer('views')->default(0);
+            $table->foreignId('user_id')->nullable()->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }
